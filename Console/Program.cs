@@ -12,22 +12,27 @@ namespace ConsoleUI
 
             Console.WriteLine(" ");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("--------------------------Araçlar Listesi-----------------------------");
+            Console.WriteLine("--------------------------ARAÇLAR LİSTESİ-----------------------------");
             Console.ResetColor();
             Console.WriteLine(" ");
+            Console.WriteLine("BrandName    |   ColorName    |   DailyPrice    |   ModelYear     |   Description");
+            Console.WriteLine("---------------------------------------------------------------------------------");
             foreach (var car in ınMemoryDal.GetAll())
             {
-                Console.WriteLine("BrandName : "+ car.BrandName+ "        "+ 
-                    "ColorName : "+ car.ColorName+ "          "+ 
-                    "DailyPrice : " + car.DailyPrice+"           " +
-                    "ModelYear : "+ car.ModelYear + "           " +
-                    "Description : " + car.Description);
-                       
+                
+                Console.WriteLine(String.Format("{0,-12} | {1,-12}   | {2,-13}   | {3,-14}  | {4,-15}", car.BrandName, car.ColorName, car.DailyPrice, car.ModelYear, car.Description));
+
+                //Console.WriteLine("BrandName : "+ car.BrandName+ "        "+ 
+                //    "ColorName : "+ car.ColorName+ "          "+ 
+                //    "DailyPrice : " + car.DailyPrice+"           " +
+                //    "ModelYear : "+ car.ModelYear + "           " +
+                //    "Description : " + car.Description);
+
             }
 
             Console.WriteLine(" ");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("--------------------------Araç Eklenedi-----------------------------");
+            Console.WriteLine("--------------------------ARAÇ EKLENDİ-----------------------------");
             Console.ResetColor();
             Console.WriteLine(" ");
             ınMemoryDal.Add(new Car {CarID=5, BrandID=3, 
@@ -36,7 +41,7 @@ namespace ConsoleUI
 
             Console.WriteLine(" ");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("--------------------------Araç Silindi-----------------------------");
+            Console.WriteLine("--------------------------ARAÇ SİLİNDİ-----------------------------");
             Console.ResetColor();
             Console.WriteLine(" ");
             ınMemoryDal.Delete(2);
@@ -44,7 +49,7 @@ namespace ConsoleUI
 
             Console.WriteLine(" ");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("--------------------------Araç Güncellendi-----------------------------");
+            Console.WriteLine("--------------------------ARAÇ GÜNCELLENDİ-----------------------------");
             Console.ResetColor();
             Console.WriteLine(" ");
             ınMemoryDal.Update(new Car
@@ -61,16 +66,20 @@ namespace ConsoleUI
 
             Console.WriteLine(" ");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("--------------------------Güncel Araç Listesi-----------------------------");
+            Console.WriteLine("--------------------------GÜNCEL ARAÇ LİSTESİ-----------------------------");
             Console.ResetColor();
             Console.WriteLine(" ");
+            Console.WriteLine("BrandName    |   ColorName    |   DailyPrice    |   ModelYear     |   Description");
+            Console.WriteLine("---------------------------------------------------------------------------------");
             foreach (var car in ınMemoryDal.GetAll())
             {
-                Console.WriteLine("BrandName : " + car.BrandName + "              " +
-                    "ColorName : " + car.ColorName + "           " +
-                    "DailyPrice : " + car.DailyPrice + "         " +
-                    "ModelYear : " + car.ModelYear + "           " +
-                    "Description : " + car.Description);
+                Console.WriteLine(String.Format("{0,-12} | {1,-12}   | {2,-13}   | {3,-14}  | {4,-15}", car.BrandName, car.ColorName, car.DailyPrice, car.ModelYear, car.Description));
+
+                //Console.WriteLine("BrandName : " + car.BrandName + "              " +
+                //    "ColorName : " + car.ColorName + "           " +
+                //    "DailyPrice : " + car.DailyPrice + "         " +
+                //    "ModelYear : " + car.ModelYear + "           " +
+                //    "Description : " + car.Description);
 
             }
 
