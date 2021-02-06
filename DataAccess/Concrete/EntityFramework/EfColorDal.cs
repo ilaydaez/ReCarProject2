@@ -11,12 +11,12 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfColorDal : IColorDal
     {
-        public void Add(Color entity)
+        public void Add(Color color)
         {
 
             using (ReCapContext context = new ReCapContext())
             {
-                var addedEntity = context.Entry(entity);
+                var addedEntity = context.Entry(color);
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
 
@@ -24,12 +24,12 @@ namespace DataAccess.Concrete.EntityFramework
 
         }
 
-        public void Delete(Color entity)
+        public void Delete(Color color)
         {
             using (ReCapContext context = new ReCapContext())
             {
-                var addedEntity = context.Entry(entity);
-                addedEntity.State = EntityState.Deleted;
+                var deletedEntity = context.Entry(color);
+                deletedEntity.State = EntityState.Deleted;
                 context.SaveChanges();
 
             }
@@ -51,11 +51,11 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public void Update(Color entity)
+        public void Update(Color color)
         {
             using (ReCapContext context = new ReCapContext())
             {
-                var updatedEntity = context.Entry(entity);
+                var updatedEntity = context.Entry(color);
                 updatedEntity.State = EntityState.Modified;
                 context.SaveChanges();
             }

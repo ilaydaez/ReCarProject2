@@ -11,12 +11,12 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfBrandDal : IBrandDal
     {
-        public void Add(Brand entity)
+        public void Add(Brand brand)
         {
 
             using (ReCapContext context = new ReCapContext())
             {
-                var addedEntity = context.Entry(entity);
+                var addedEntity = context.Entry(brand);
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
 
@@ -24,12 +24,12 @@ namespace DataAccess.Concrete.EntityFramework
 
         }
 
-        public void Delete(Brand entity)
+        public void Delete(Brand brand)
         {
             using (ReCapContext context = new ReCapContext())
             {
-                var addedEntity = context.Entry(entity);
-                addedEntity.State = EntityState.Deleted;
+                var deletedEntity = context.Entry(brand);
+                deletedEntity.State = EntityState.Deleted;
                 context.SaveChanges();
 
             }
@@ -51,11 +51,11 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public void Update(Brand entity)
+        public void Update(Brand brand)
         {
             using (ReCapContext context = new ReCapContext())
             {
-                var updatedEntity = context.Entry(entity);
+                var updatedEntity = context.Entry(brand);
                 updatedEntity.State = EntityState.Modified;
                 context.SaveChanges();
             }
