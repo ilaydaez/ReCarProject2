@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,56 +10,8 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfColorDal : IColorDal
+    public class EfColorDal : IEntityRespositoryBase<Color, ReCarContext>, IColorDal
     {
-        public void Add(Color color)
-        {
-
-            using (ReCapContext context = new ReCapContext())
-            {
-                var addedEntity = context.Entry(color);
-                addedEntity.State = EntityState.Added;
-                context.SaveChanges();
-
-            }
-
-        }
-
-        public void Delete(Color color)
-        {
-            using (ReCapContext context = new ReCapContext())
-            {
-                var deletedEntity = context.Entry(color);
-                deletedEntity.State = EntityState.Deleted;
-                context.SaveChanges();
-
-            }
-        }
-
-        public Color Get(Expression<Func<Color, bool>> filter = null)
-        {
-            using (ReCapContext context = new ReCapContext())
-            {
-                return context.Set<Color>().SingleOrDefault(filter);
-            }
-        }
-
-        public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
-        {
-            using (ReCapContext context = new ReCapContext())
-            {
-                return filter == null ? context.Set<Color>().ToList() : context.Set<Color>().Where(filter).ToList();
-            }
-        }
-
-        public void Update(Color color)
-        {
-            using (ReCapContext context = new ReCapContext())
-            {
-                var updatedEntity = context.Entry(color);
-                updatedEntity.State = EntityState.Modified;
-                context.SaveChanges();
-            }
-        }
+        
     }
 }
