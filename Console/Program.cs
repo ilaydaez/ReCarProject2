@@ -17,6 +17,7 @@ namespace ConsoleUI
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
 
+
             
 
 
@@ -30,14 +31,21 @@ namespace ConsoleUI
             Console.WriteLine(" ");
             Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", "CarID", "CarName", "BrandID","BranName", "ColorID","ColorName", "ModelYear", "DailyPrice", "Description"));
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            foreach (var car in carManager.GetCarDetails())
-            {
 
-                Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", car.CarID,
-                            car.CarName, car.BrandID, car.BrandName, car.ColorID, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
+            var result = carManager.GetCarDetails();
+            if (result.Success == true)
+            {
+                foreach (var car in result.Data)
+                {
+
+                    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", car.CarID,
+                                car.CarName, car.BrandID, car.BrandName, car.ColorID, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
+                }
             }
 
-            Console.WriteLine(" ");
+
+
+                Console.WriteLine(" ");
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("--------------------------ARAÇ EKLENDİ-----------------------------");
             Console.ResetColor();
@@ -65,14 +73,22 @@ namespace ConsoleUI
             Console.WriteLine(" ");
             Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-20} | {4,-15} | {5,-20} | {6,-20}", "CarName", "CarName", "BrandID", "ColorID", "ModelYear", "DailyPrice", "Description"));
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------");
-            foreach (var car in carManager.GetByCarID(3027))
+
+            var resultID = carManager.GetByCarID(3028);
+
+            if (resultID.Success == true)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-20} | {4,-15} | {5,-20} | {6,-20} ", car.CarID,
-                            car.CarName, car.BrandID, car.ColorID, car.ModelYear, car.DailyPrice, car.Description));
-                Console.ResetColor();
+                foreach (var car in resultID.Data)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-20} | {4,-15} | {5,-20} | {6,-20} ", car.CarID,
+                                car.CarName, car.BrandID, car.ColorID, car.ModelYear, car.DailyPrice, car.Description));
+                    Console.ResetColor();
+                }
+
             }
-            carManager.Delete(new Car { CarID = 3027 });
+            
+            carManager.Delete(new Car { CarID = 3028 });
 
 
             Console.WriteLine(" ");
@@ -100,11 +116,16 @@ namespace ConsoleUI
             Console.WriteLine(" ");
             Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", "CarID", "CarName", "BrandID","BranName", "ColorID","ColorName", "ModelYear", "DailyPrice", "Description"));
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            foreach (var car in carManager.GetCarDetails())
-            {
 
-                Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", car.CarID,
-                            car.CarName, car.BrandID, car.BrandName, car.ColorID, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
+
+            if (result.Success == true)
+            {
+                foreach (var car in result.Data)
+                {
+
+                    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", car.CarID,
+                                car.CarName, car.BrandID, car.BrandName, car.ColorID, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
+                }
             }
 
 
