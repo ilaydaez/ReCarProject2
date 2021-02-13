@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -16,30 +18,48 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
-        public void Add(Brand brand)
+        public IResult Add(Brand brand)
         {
-            throw new NotImplementedException();
+            if (brand.BrandName.Length < 2)
+            {
+                return new ErrorResult(Massages.BrandNameInvalid);
+            }
+
+            _brandDal.Add(brand);
+
+            return new SuccessResult(Massages.BrandAdded);
         }
 
-        public void Delete(Brand brand)
+        public IResult Delete(Brand brand)
         {
-            throw new NotImplementedException();
+            
+
+            _brandDal.Delete(brand);
+
+            return new SuccessResult(Massages.BrandAdded);
         }
 
 
-        public List<Brand> GetCarByBrand()
+        public IDataResult<List<Brand>> GetCarByBrand()
         {
-            return _brandDal.GetAll();
+            return new SuccessDataResult<List<Brand>>(  _brandDal.GetAll());
         }
 
-        public List<Brand> GetCarByBrandID(int brandID)
+        public IDataResult<Brand> GetCarByBrandID(int brandID)
         {
-            return _brandDal.GetAll(c => c.BrandID == brandID);
+            return new SuccessDataResult<Brand>(_brandDal.Get(c => c.BrandID == brandID));
         }
 
-        public void Update(Brand brand)
+        public IResult Update(Brand brand)
         {
-            throw new NotImplementedException();
+            if (brand.BrandName.Length < 2)
+            {
+                return new ErrorResult(Massages.BrandNameInvalid);
+            }
+
+            _brandDal.Update(brand);
+
+            return new SuccessResult(Massages.BrandAdded);
         }
     }
 }

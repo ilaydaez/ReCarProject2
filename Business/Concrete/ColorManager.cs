@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -15,30 +17,48 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        public void Add(Color color)
+        public IResult Add(Color color)
         {
-            throw new NotImplementedException();
+            if (color.ColorName.Length < 2)
+            {
+                return new ErrorResult(Massages.CarNameInvalid);
+            }
+
+            _colorDal.Add(color);
+
+            return new SuccessResult(Massages.ColorAdded);
         }
 
-        public void Delete(Color color)
+        public IResult Delete(Color color)
         {
-            throw new NotImplementedException();
+            
+
+            _colorDal.Delete(color);
+
+            return new SuccessResult(Massages.ColorDeleted);
         }
 
-        public List<Color> GetColorID(int colorID)
+        public IDataResult<Color> GetColorID(int colorID)
         {
-            return _colorDal.GetAll(c => c.ColorID == colorID);
+            return new SuccessDataResult< Color > (_colorDal.Get(c => c.ColorID == colorID));
         }
 
 
-        public List<Color> GetColors()
+        public IDataResult<List<Color>> GetColors()
         {
-            return _colorDal.GetAll();
+            return new SuccessDataResult <List< Color >> (_colorDal.GetAll());
         }
 
-        public void UpDate(Color color)
+        public IResult UpDate(Color color)
         {
-            throw new NotImplementedException();
+            if (color.ColorName.Length < 2)
+            {
+                return new ErrorResult(Massages.CarNameInvalid);
+            }
+
+            _colorDal.Update(color);
+
+            return new SuccessResult(Massages.ColorUpdated);
         }
     }
 }

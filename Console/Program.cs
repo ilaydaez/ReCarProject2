@@ -16,12 +16,15 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
+            UserManager userManager = new UserManager(new EfUserDal());
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
 
-            
 
 
-            
+
+
 
 
             Console.WriteLine(" ");
@@ -29,79 +32,64 @@ namespace ConsoleUI
             Console.WriteLine("--------------------------ARAÇLAR LİSTESİ-----------------------------");
             Console.ResetColor();
             Console.WriteLine(" ");
-            Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", "CarID", "CarName", "BrandID","BranName", "ColorID","ColorName", "ModelYear", "DailyPrice", "Description"));
+            Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", "CarID", "CarName", "BrandID", "BranName", "ColorID", "ColorName", "ModelYear", "DailyPrice", "Description"));
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
-            var result = carManager.GetCarDetails();
-            if (result.Success == true)
+
+            var resultListed = carManager.GetCarDetails();
+            if (resultListed.Success == true)
             {
-                foreach (var car in result.Data)
+                foreach (var car in resultListed.Data)
                 {
 
                     Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", car.CarID,
                                 car.CarName, car.BrandID, car.BrandName, car.ColorID, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
                 }
             }
-
-
-
-                Console.WriteLine(" ");
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("--------------------------ARAÇ EKLENDİ-----------------------------");
-            Console.ResetColor();
-            Console.WriteLine(" ");
-            Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} ", "CarID", "CarName", "BrandID", "BranName", "ColorID", "ColorName", "ModelYear", "DailyPrice", "Description"));
-            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            carManager.Add(new Car
+            else
             {
-                
-                CarName = "Ranault",
+                Console.WriteLine(resultListed.Massage);
+            }
+
+
+
+            Console.WriteLine(" ");
+
+            var resultAdded = carManager.Add(new Car
+            {
+
+                CarName = "Nur",
                 BrandID = 3,
                 ColorID = 1,
                 ModelYear = 2010,
                 DailyPrice = 900,
                 Description = "Manuel Benzinli"
+
             });
 
-
-
-
-            Console.WriteLine(" ");
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("--------------------------ARAÇ SİLİNDİ-----------------------------");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(resultAdded.Massage);
             Console.ResetColor();
-            Console.WriteLine(" ");
-            Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-20} | {4,-15} | {5,-20} | {6,-20}", "CarName", "CarName", "BrandID", "ColorID", "ModelYear", "DailyPrice", "Description"));
-            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------");
 
-            var resultID = carManager.GetByCarID(3028);
-
-            if (resultID.Success == true)
-            {
-                foreach (var car in resultID.Data)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-20} | {4,-15} | {5,-20} | {6,-20} ", car.CarID,
-                                car.CarName, car.BrandID, car.ColorID, car.ModelYear, car.DailyPrice, car.Description));
-                    Console.ResetColor();
-                }
-
-            }
-            
-            carManager.Delete(new Car { CarID = 3028 });
 
 
             Console.WriteLine(" ");
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("--------------------------ARAÇ GÜNCELLENDİ-----------------------------");
+
+
+            var resultDeleted = carManager.Delete(new Car { CarID = 10019 });
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(resultDeleted.Massage);
             Console.ResetColor();
+
+
+
             Console.WriteLine(" ");
-            Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-20} | {4,-15} | {5,-20} | {6,-20}", "CarName", "CarName", "BrandID", "ColorID", "ModelYear", "DailyPrice", "Description"));
-            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------");
-            carManager.UpDate(new Car
+
+            var resultUpdated = carManager.UpDate(new Car
             {
                 CarID = 4,
-                CarName="Kia",
+                CarName = "Kia",
                 BrandID = 3,
                 ColorID = 1,
                 ModelYear = 2010,
@@ -109,18 +97,24 @@ namespace ConsoleUI
                 Description = "Manuel Benzinli"
             });
 
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("CarID = " + "4" + " => " + resultUpdated.Massage);
+            Console.ResetColor();
+
+
+
             Console.WriteLine(" ");
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("--------------------------GÜNCEL ARAÇ LİSTESİ-----------------------------");
             Console.ResetColor();
             Console.WriteLine(" ");
-            Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", "CarID", "CarName", "BrandID","BranName", "ColorID","ColorName", "ModelYear", "DailyPrice", "Description"));
+            Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", "CarID", "CarName", "BrandID", "BranName", "ColorID", "ColorName", "ModelYear", "DailyPrice", "Description"));
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
-
-            if (result.Success == true)
+            var resultUpdatedList = carManager.GetCarDetails();
+            if (resultUpdatedList.Success == true)
             {
-                foreach (var car in result.Data)
+                foreach (var car in resultUpdatedList.Data)
                 {
 
                     Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", car.CarID,
@@ -128,6 +122,40 @@ namespace ConsoleUI
                 }
             }
 
+
+            Console.WriteLine(" ");
+
+            var userAdded = userManager.Add(new User
+            {
+                UserFirstName = "Hasan",
+                UserLastName = "Atik",
+                Email = "Hatik@gmail.com",
+                Password = 11111117
+
+
+            });
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("UserName = " + "Hasan Atik " + " => " + userAdded.Massage);
+            Console.ResetColor();
+
+
+
+            Console.WriteLine(" ");
+
+            var result = rentalManager.Add(new Rental {CarID=3, CustomerID=6, RentDate=new DateTime(2020,02,10), ReturnDate= new DateTime(2020,02,13) });
+            if (result.Success==true)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(result.Massage);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("CarID = "+ "3"+" => "+result.Massage);
+                Console.ResetColor();
+            }
 
 
             Console.ReadLine();

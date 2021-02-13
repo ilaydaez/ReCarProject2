@@ -45,20 +45,16 @@ namespace Business.Concrete
             //    addedEntity.State = EntityState.Added;
             //    context.SaveChanges();
 
-            //    Console.ForegroundColor = ConsoleColor.Green;
-            //    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15}", car.CarID,
-            //                car.CarName, car.BrandID, car.ColorID, car.ModelYear, car.DailyPrice, car.Description));
-            //    Console.ResetColor();
             //}
         }
-
+            
         public IDataResult<List<Car>> GetByCars()
         {
-            //if (DateTime.Now.Hour>=23)
-            //{
-            //    return new ErrorDataResult<List<Car>>(Massages.MaintenanceTime);
+            if (DateTime.Now.Hour >= 23)
+            {
+                return new ErrorDataResult<List<Car>>(Massages.MaintenanceTime);
 
-            //}
+            }
             return new SuccessDataResult<List<Car>>(_cars.GetAll(), Massages.CarListed);
         }
 
@@ -70,6 +66,7 @@ namespace Business.Concrete
         public IDataResult<List<CarDetailsDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailsDto>>(_cars.GetCarDetails());
+   
         }
 
         public IDataResult<List<Car>> GetCarByColorID(int colorID)
@@ -98,6 +95,7 @@ namespace Business.Concrete
             _cars.Delete(car);
 
             return new SuccessResult(Massages.CarDeleted);
+            
 
             //using (ReCarContext context = new ReCarContext())
             //{
