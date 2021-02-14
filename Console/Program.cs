@@ -76,7 +76,7 @@ namespace ConsoleUI
             Console.WriteLine(" ");
 
 
-            var resultDeleted = carManager.Delete(new Car { CarID = 10019 });
+            var resultDeleted = carManager.Delete(new Car { CarID = 10020 });
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(resultDeleted.Massage);

@@ -50,11 +50,11 @@ namespace Business.Concrete
             
         public IDataResult<List<Car>> GetByCars()
         {
-            if (DateTime.Now.Hour >= 23)
-            {
-                return new ErrorDataResult<List<Car>>(Massages.MaintenanceTime);
+            //if (DateTime.Now.Hour >= 23)
+            //{
+            //    return new ErrorDataResult<List<Car>>(Massages.MaintenanceTime);
 
-            }
+            //}
             return new SuccessDataResult<List<Car>>(_cars.GetAll(), Massages.CarListed);
         }
 
