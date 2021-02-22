@@ -64,8 +64,8 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("GetCarByBrand")]
-        public IActionResult GetCarByBrand()
+        [HttpGet("GetAllBrand")]
+        public IActionResult GetAllBrand()
         {
             var result = _brandService.GetCarByBrand();
             if (result.Success)

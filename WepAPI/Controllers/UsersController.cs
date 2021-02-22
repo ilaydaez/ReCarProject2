@@ -20,8 +20,8 @@ namespace WepAPI.Controllers
             _userService = userService;
         }
 
-        [HttpGet("GetByUsers")]
-        public IActionResult GetByUsers()
+        [HttpGet("GetUsers")]
+        public IActionResult GetUsers()
         {
             var result = _userService.GetByUsers();
             if (result.Success)

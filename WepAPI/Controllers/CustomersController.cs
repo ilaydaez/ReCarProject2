@@ -20,8 +20,8 @@ namespace WepAPI.Controllers
             _customerService = customerService;
         }
 
-        [HttpGet("GetByCustomers")]
-        public IActionResult GetByCustomers()
+        [HttpGet("GetCustomers")]
+        public IActionResult GetCustomers()
         {
             var result = _customerService.GetByCustomers();
             if (result.Success)
