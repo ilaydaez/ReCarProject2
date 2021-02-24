@@ -29,7 +29,7 @@ namespace DataAccess.Concrete.EntityFramework
                              {
                                  RentID= r.ID,
                                  RentDate= r.RentDate,
-                                 ReturnDate= r.ReturnDate,
+                                 ReturnDate=(DateTime) r.ReturnDate,
                                  CarID = c.CarID,
                                  CarName = c.CarName,
                                  CustomerID = m.CustomerID,
