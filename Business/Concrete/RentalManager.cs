@@ -29,14 +29,14 @@ namespace Business.Concrete
             ValidationTool.Validate(new RentalValidator(), rental);
             _rentalDal.Add(rental);
 
-            return new SuccessResult(Massages.RentalAdded);
+            return new SuccessResult(Messages.RentalAdded);
         }
 
         public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(rental);
 
-            return new SuccessResult(Massages.RentalDeleted);
+            return new SuccessResult(Messages.RentalDeleted);
         }
 
         public IDataResult<List<Rental>> GetByRental()
@@ -73,7 +73,7 @@ namespace Business.Concrete
         {
             _rentalDal.Update(rental);
 
-            return new SuccessResult(Massages.RentalUpdated);
+            return new SuccessResult(Messages.RentalUpdated);
         }
         
     }

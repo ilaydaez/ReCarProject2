@@ -26,14 +26,14 @@ namespace Business.Concrete
             ValidationTool.Validate(new CustomerValidator(), customer);
             _customerDal.Add(customer);
 
-            return new SuccessResult(Massages.CustomerAdded);
+            return new SuccessResult(Messages.CustomerAdded);
         }
 
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
 
-            return new SuccessResult(Massages.CustomerDeleted);
+            return new SuccessResult(Messages.CustomerDeleted);
         }
 
         public IDataResult<Customer> GetByCustomerID(int customerID)
@@ -60,7 +60,7 @@ namespace Business.Concrete
         {
             _customerDal.Update(customer);
 
-            return new SuccessResult(Massages.CustomerUpdated);
+            return new SuccessResult(Messages.CustomerUpdated);
         }
     }
 }

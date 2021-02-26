@@ -15,5 +15,6 @@ namespace Entities.DTOs
         public string UserFirstName { get; set; }
         public DateTime RentDate { get; set; }
         public DateTime ReturnDate { get; set; }
+        public int ImageID { get; set; }
     }
 }

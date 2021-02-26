@@ -26,7 +26,7 @@ namespace Business.Concrete
 
             _brandDal.Add(brand);
 
-            return new SuccessResult(Massages.BrandAdded);
+            return new SuccessResult(Messages.BrandAdded);
         }
 
         public IResult Delete(Brand brand)
@@ -35,7 +35,7 @@ namespace Business.Concrete
 
             _brandDal.Delete(brand);
 
-            return new SuccessResult(Massages.BrandAdded);
+            return new SuccessResult(Messages.BrandAdded);
         }
 
 
@@ -53,12 +53,12 @@ namespace Business.Concrete
         {
             if (brand.BrandName.Length < 2)
             {
-                return new ErrorResult(Massages.BrandNameInvalid);
+                return new ErrorResult(Messages.BrandNameInvalid);
             }
 
             _brandDal.Update(brand);
 
-            return new SuccessResult(Massages.BrandAdded);
+            return new SuccessResult(Messages.BrandAdded);
         }
     }
 }

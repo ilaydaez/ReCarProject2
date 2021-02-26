@@ -26,7 +26,7 @@ namespace Business.Concrete
 
             _userDal.Add(user);
 
-            return new SuccessResult(Massages.UserAdded);
+            return new SuccessResult(Messages.UserAdded);
         }
 
         public IResult Delete(User user)
@@ -34,7 +34,7 @@ namespace Business.Concrete
 
             _userDal.Delete(user);
 
-            return new SuccessResult(Massages.UserDeleted);
+            return new SuccessResult(Messages.UserDeleted);
         }
 
         public IDataResult<User> GetByUserID(int userID)
@@ -56,11 +56,11 @@ namespace Business.Concrete
         {
             if (user.UserFirstName.Length < 2)
             {
-                return new ErrorResult(Massages.UserFirstNameInvalid);
+                return new ErrorResult(Messages.UserFirstNameInvalid);
             }
 
             _userDal.Update(user);
-            return new SuccessResult(Massages.UserUpdated);
+            return new SuccessResult(Messages.UserUpdated);
         }
     }
 }

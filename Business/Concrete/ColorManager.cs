@@ -25,7 +25,7 @@ namespace Business.Concrete
 
             _colorDal.Add(color);
 
-            return new SuccessResult(Massages.ColorAdded);
+            return new SuccessResult(Messages.ColorAdded);
         }
 
         public IResult Delete(Color color)
@@ -34,7 +34,7 @@ namespace Business.Concrete
 
             _colorDal.Delete(color);
 
-            return new SuccessResult(Massages.ColorDeleted);
+            return new SuccessResult(Messages.ColorDeleted);
         }
 
         public IDataResult<Color> GetColorID(int colorID)
@@ -52,12 +52,12 @@ namespace Business.Concrete
         {
             if (color.ColorName.Length < 2)
             {
-                return new ErrorResult(Massages.CarNameInvalid);
+                return new ErrorResult(Messages.CarNameInvalid);
             }
 
             _colorDal.Update(color);
 
-            return new SuccessResult(Massages.ColorUpdated);
+            return new SuccessResult(Messages.ColorUpdated);
         }
     }
 }
