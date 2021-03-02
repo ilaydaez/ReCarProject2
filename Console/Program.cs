@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Core.Entities.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using DataAccess.Concrete.EntityFramework;
@@ -48,7 +49,7 @@ namespace ConsoleUI
             }
             else
             {
-                Console.WriteLine(resultListed.Massage);
+                Console.WriteLine(resultListed.Message);
             }
 
 
@@ -68,7 +69,7 @@ namespace ConsoleUI
             });
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(resultAdded.Massage);
+            Console.WriteLine(resultAdded.Message);
             Console.ResetColor();
 
 
@@ -79,7 +80,7 @@ namespace ConsoleUI
             var resultDeleted = carManager.Delete(new Car { CarID = 10020 });
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(resultDeleted.Massage);
+            Console.WriteLine(resultDeleted.Message);
             Console.ResetColor();
 
 
@@ -98,7 +99,7 @@ namespace ConsoleUI
             });
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("CarID = " + "4" + " => " + resultUpdated.Massage);
+            Console.WriteLine("CarID = " + "4" + " => " + resultUpdated.Message);
             Console.ResetColor();
 
 
@@ -123,21 +124,21 @@ namespace ConsoleUI
             }
 
 
-            Console.WriteLine(" ");
+            //Console.WriteLine(" ");
 
-            var userAdded = userManager.Add(new User
-            {
-                UserFirstName = "Hasan",
-                UserLastName = "Atik",
-                Email = "Hatik@gmail.com",
-                Password = 11111117
+            //var userAdded = userManager.Add(new User
+            //{
+            //    UserFirstName = "Hasan",
+            //    UserLastName = "Atik",
+            //    Email = "Hatik@gmail.com",
+            //    //Password = 11111117
 
 
-            });
+            //});
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("UserName = " + "Hasan Atik " + " => " + userAdded.Massage);
-            Console.ResetColor();
+            //Console.ForegroundColor = ConsoleColor.Green;
+            //Console.WriteLine("UserName = " + "Hasan Atik " + " => " + userAdded.Message);
+            //Console.ResetColor();
 
 
 
@@ -147,13 +148,13 @@ namespace ConsoleUI
             if (result.Success==true)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(result.Massage);
+                Console.WriteLine(result.Message);
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("CarID = "+ "3"+" => "+result.Massage);
+                Console.WriteLine("CarID = "+ "3"+" => "+result.Message);
                 Console.ResetColor();
             }
 

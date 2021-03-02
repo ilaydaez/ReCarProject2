@@ -12,7 +12,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfCarDal : IEntityRespositoryBase<Car, ReCarContext>, ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, ReCarContext>, ICarDal
     {
         public List<CarDetailsDto> GetCarDetails()
         {

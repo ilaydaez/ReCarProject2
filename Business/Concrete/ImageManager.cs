@@ -6,6 +6,7 @@ using Core.Utilities.Bussiness;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -72,6 +73,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ImageValidator))]
         public IResult UpDate(Image ımage)
         {
+
             var ımageUpdate = UpdatedFile(ımage).Data;
             _ımageDal.Update(ımage);
 
@@ -105,9 +107,9 @@ namespace Business.Concrete
 
         private IDataResult<Image> UpdatedFile(Image ımage)
         {
-            var creatingUniqueFilename = Guid.NewGuid().ToString("N") + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + ".jpeg";
+            var creatingUniqueFilename = Guid.NewGuid().ToString("N") + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + ".jpg";
 
-            string path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).FullName + @"\Images");
+            string path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).FullName + @"\Image");
 
             string result = $"{path}\\{creatingUniqueFilename}";
 

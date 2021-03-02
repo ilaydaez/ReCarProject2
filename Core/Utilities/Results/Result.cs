@@ -8,7 +8,7 @@ namespace Core.Utilities.Results
     {
         public Result (bool success, string massage): this(success)
         {
-            Massage = massage;
+            Message = massage;
 
         }
 
@@ -18,6 +18,6 @@ namespace Core.Utilities.Results
         }
         public bool Success { get; }
 
-        public string Massage { get; }
+        public string Message { get; }
     }
 }

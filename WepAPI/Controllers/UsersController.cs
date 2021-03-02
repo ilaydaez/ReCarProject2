@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +24,7 @@ namespace WepAPI.Controllers
         [HttpGet("GetUsers")]
         public IActionResult GetUsers()
         {
-            var result = _userService.GetByUsers();
+            var result = _userService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -34,7 +35,7 @@ namespace WepAPI.Controllers
         [HttpGet("GetByUserId")]
         public IActionResult GetByUserId(int id)
         {
-            var result = _userService.GetByUserID(id);
+            var result = _userService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -45,7 +46,7 @@ namespace WepAPI.Controllers
         [HttpGet("GetByUserEmail")]
         public IActionResult GetByUserEmail(string email)
         {
-            var result = _userService.GetUserByEmail(email);
+            var result = _userService.GetByMail(email);
             if (result.Success)
             {
                 return Ok(result);
@@ -78,7 +79,7 @@ namespace WepAPI.Controllers
         [HttpPost("UpdateUser")]
         public IActionResult UpdateUser(User user)
         {
-            var result = _userService.UpDate(user);
+            var result = _userService.Update(user);
             if (result.Success)
             {
                 return Ok(result);

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfImageDal : IEntityRespositoryBase<Image, ReCarContext>, IImageDal
+    public class EfImageDal : EfEntityRepositoryBase<Image, ReCarContext>, IImageDal
     {
         public bool IsExist(int id)
         {

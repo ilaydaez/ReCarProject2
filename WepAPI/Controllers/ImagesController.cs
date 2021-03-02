@@ -59,7 +59,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("DeleteImage")]
-        public IActionResult Delete(Image ımage)
+        public IActionResult DeleteImage(Image ımage)
         {
             var result = _ımageService.Delete(ımage);
             if (result.Success)
@@ -69,8 +69,8 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("UpdateImage")]
-        public IActionResult UpDate(Image ımage)
+        [HttpPost("UpDateImage")]
+        public IActionResult UpDateImage(Image ımage)
         {
             var result = _ımageService.UpDate(ımage);
             if (result.Success)
@@ -80,7 +80,7 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("GetByImages")]
+        [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
             var result = _ımageService.GetByImages();

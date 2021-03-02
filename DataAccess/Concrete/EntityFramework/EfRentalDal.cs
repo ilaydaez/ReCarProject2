@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfRentalDal: IEntityRespositoryBase<Rental, ReCarContext>, IRentalDal
+    public class EfRentalDal: EfEntityRepositoryBase<Rental, ReCarContext>, IRentalDal
     {
         public List<RentalDetailsDto> GetRentalDetails()
         {
@@ -22,7 +22,7 @@ namespace DataAccess.Concrete.EntityFramework
                              join m in context.Customers
                              on r.CustomerID equals m.CustomerID
                              join u in context.Users
-                             on m.UserID equals u.UserID
+                             on m.UserID equals u.Id
                              
 
                              select new RentalDetailsDto
