@@ -2,6 +2,9 @@
 using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transactional;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Bussiness;
@@ -28,6 +31,7 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        [CacheAspect]
         public IDataResult<List<Car>> GetByCarID(int carID)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.CarID == carID));
@@ -35,6 +39,7 @@ namespace Business.Concrete
 
         [SecuredOperation("car.add, admin")]
         [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
             IResult result = BusinessRules.Run(CheckIfCarNameExists(car.CarName), CheckIfCarCountOfBrandCorrect(car.BrandID));
@@ -46,7 +51,9 @@ namespace Business.Concrete
 
             return new SuccessResult(Messages.CarAdded);
         }
-            
+
+
+        [CacheAspect]    
         public IDataResult<List<Car>> GetByCars()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
@@ -83,6 +90,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c=> c.Description== carDescription));
         }
 
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Delete(Car car)
         {
 
@@ -91,6 +99,8 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
 
+        [CacheRemoveAspect("ICarService.Get")]
+        [PerformanceAspect(5)]
         public IResult UpDate(Car car)
         {
 
@@ -122,5 +132,18 @@ namespace Business.Concrete
             }
             return new SuccessResult();
         }
+
+        [TransactionScopeAspect]
+        public IResult AddTransactionalTest(Car car)
+        {
+            Add(car);
+            if (car.DailyPrice<10)
+            {
+                throw new Exception("");
+            }
+            Add(car);
+            return null;
+        }
+
     }
 }
