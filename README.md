@@ -56,4 +56,23 @@ Veritabanı CRUD işlemleri gerçekleştirmek için kurulan veri erişim katman�
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [InMemoryDal](https://github.com/ilaydaez/ReCarProject2/blob/master/DataAccess/Concrete/InMemory/InMemoryDal.cs)<br>
 
 ### :file_folder: Business Layer
+DataAccess tarafından veratabanından projeye çekilen verileri alarak işleyen katmandır. Bir başka deyişle iş yüklerinin yazıldığı katmandır.
+Altı alt klasörden oluşur.<br>
+&nbsp;&nbsp;1.Abstarct<br>
+&nbsp;&nbsp;2.Concrete<br>
+&nbsp;&nbsp;3.BusinessAspect<br>
+&nbsp;&nbsp;4.Constants<br>
+&nbsp;&nbsp;5.DependecyResolvers<br>
+&nbsp;&nbsp;6.ValidationRules<br>
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Abstarct`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IAuthService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IAuthService.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IBrandService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IBrandService.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ICarService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/ICarService.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IColorService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IColorService.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ICustomerService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/ICustomerService.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IImageService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IImageService.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IRentalService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IRentalService.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IUserService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IUserService.cs)<br>
 ### :file_folder: Core Layer
+
