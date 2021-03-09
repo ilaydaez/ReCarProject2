@@ -62,7 +62,7 @@ Altı alt klasörden oluşur.<br>
 &nbsp;&nbsp;2.`Concrete` klasörü somut nesneleri tutmak için,<br>
 &nbsp;&nbsp;3.`BusinessAspect` klasörü güvenlik operasyonlarının yönetimi için,<br>
 &nbsp;&nbsp;4.`Constants` klasörü kullanıcı verileri ile gerçekleştirilen işlem sonucunda bilgilendirme mesajlarının yönetimi için, <br>
-&nbsp;&nbsp;5.`DependecyResolvers` klasörü,<br>
+&nbsp;&nbsp;5.`DependecyResolvers` klasörü instance oluşturmak için,<br>
 &nbsp;&nbsp;6.`ValidationRules` klasörü doğrulama kurallarının yönetimi için oluşturuluştur.<br>
 <br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Abstarct`<br>
@@ -103,14 +103,75 @@ Altı alt klasörden oluşur.<br>
 
 
 ### :file_folder: Core Layer
-Tüm projelerde kullanılacak ortak kodların bulunduğu evrensel bir katmandır.
-Yedi alt klasörden oluşmaktadır.
+Tüm projelerde kullanılacak ortak kodların bulunduğu evrensel bir katmandır.<br>
+Yedi alt klasörden oluşmaktadır.<br>
 &nbsp;&nbsp;1.`Aspects` klasörü,<br>
 &nbsp;&nbsp;2.`CrossCuttingConcerns` klasörü,<br>
 &nbsp;&nbsp;3.`DataAccess` klasörü,<br>
 &nbsp;&nbsp;4.`Entities` klasörü, <br>
-&nbsp;&nbsp;5.`DependecyResolvers` klasörü instance oluşturmak için,<br>
+&nbsp;&nbsp;5.`DependecyResolvers` klasörü,<br>
 &nbsp;&nbsp;6.`Extensions` klasörü,<br>
 &nbsp;&nbsp;7.`Utilities` klasörü,<br>
-
-
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Aspect`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `Autofac`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `Caching`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [CacheAspect](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Aspects/Autofac/Caching/CacheAspect.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [CacheRemoveAspect](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Aspects/Autofac/Caching/CacheRemoveAspect.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `Performance`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [PerformanceAspect](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Aspects/Autofac/Performance/PerformanceAspect.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `Transactional`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [TransactionScopeAspect](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Aspects/Autofac/Transactional/TransactionScopeAspect.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `Validation`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ValidationAspect](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Aspects/Autofac/Validation/ValidationAspect.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`CrossCuttingConcerns`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `Caching`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `Microsoft`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [MemoryCacheManager](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/CrossCuttingConcerns/Caching/Microsoft/MemoryCacheManager.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `Validation`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ValidationTool](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/CrossCuttingConcerns/Validation/ValidationTool.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`DataAccess`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `EntityFramework`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [EfEntityRepositoryBase](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`DependecyResolvers`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [CoreModule](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/DependecyResolvers/CoreModule.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Entities`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IDto](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Entities/IDto.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Concrete`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [OperationClaim](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Entities/Concrete/OperationClaim.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [User](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Entities/Concrete/User.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [UserOperationClaim](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Entities/Concrete/UserOperationClaim.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Extensions`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ClaimExtensions](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Extensions/ClaimExtensions.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ClaimsPrincipalExtensions](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Extensions/ClaimsPrincipalExtensions.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ServiceCollectionExtensions](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Extensions/ServiceCollectionExtensions.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Utilities`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Business`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [BusinessRules](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Business/BusinessRules.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Interceptors`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [AspectInterceptorSelector](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Interceptors/AspectInterceptorSelector.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [MethodInterception](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Interceptors/MethodInterception.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [MethodInterceptionBaseAttribute](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Interceptors/MethodInterceptionBaseAttribute.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`IoC`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ICoreModule](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/IoC/ICoreModule.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ServiceTool](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/IoC/ServiceTool.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Results`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [DataResult](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Results/DataResult.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ErrorDataResult](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Results/ErrorDataResult.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ErrorResult](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Results/ErrorResult.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IDataResult](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Results/IDataResult.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IResult](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Results/IResult.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [Result](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Results/Result.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [SuccessDataResult](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Results/SuccessDataResult.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [SuccessResult](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Results/SuccessResult.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Security`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Encryption`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [SecurityKeyHelper](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Security/Encryption/SecurityKeyHelper.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [SigningCredentialsHelper](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Security/Encryption/SigningCredentialsHelper.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Hashing`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [HashingHelper](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Security/Hashing/HashingHelper.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`JWT`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [AccessToken](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Security/JWT/AccessToken.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ITokenHelper](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Security/JWT/ITokenHelper.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [JwtHelper](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Security/JWT/JwtHelper.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [TokenOptions](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Security/JWT/TokenOptions.cs)<br>
