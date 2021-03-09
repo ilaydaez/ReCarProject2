@@ -63,7 +63,7 @@ Altı alt klasörden oluşur.<br>
 &nbsp;&nbsp;3.`BusinessAspect` klasörü güvenlik operasyonlarının yönetimi için,<br>
 &nbsp;&nbsp;4.`Constants` klasörü kullanıcı verileri ile gerçekleştirilen işlem sonucunda bilgilendirme mesajlarının yönetimi için, <br>
 &nbsp;&nbsp;5.`DependecyResolvers` klasörü instance oluşturmak için,<br>
-&nbsp;&nbsp;6.`ValidationRules` klasörü doğrulama kurallarının yönetimi için oluşturuluştur.<br>
+&nbsp;&nbsp;6.`ValidationRules` klasörü doğrulama kurallarının yönetimi için oluşturulmuştur.<br>
 <br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Abstarct`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IAuthService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IAuthService.cs)<br>
@@ -175,3 +175,14 @@ Yedi alt klasörden oluşmaktadır.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ITokenHelper](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Security/JWT/ITokenHelper.cs)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [JwtHelper](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Security/JWT/JwtHelper.cs)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [TokenOptions](https://github.com/ilaydaez/ReCarProject2/blob/master/Core/Utilities/Security/JWT/TokenOptions.cs)<br>
+
+### :file_folder: WebAPI Layer
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Controllers`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [AuthController](https://github.com/ilaydaez/ReCarProject2/blob/master/WepAPI/Controllers/AuthController.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [BrandsController](https://github.com/ilaydaez/ReCarProject2/blob/master/WepAPI/Controllers/BrandsController.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [CarsController](https://github.com/ilaydaez/ReCarProject2/blob/master/WepAPI/Controllers/CarsController.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ColorsController](https://github.com/ilaydaez/ReCarProject2/blob/master/WepAPI/Controllers/ColorsController.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [CustomersController](https://github.com/ilaydaez/ReCarProject2/blob/master/WepAPI/Controllers/CustomersController.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ImagesController](https://github.com/ilaydaez/ReCarProject2/blob/master/WepAPI/Controllers/ImagesController.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [RentalsController](https://github.com/ilaydaez/ReCarProject2/blob/master/WepAPI/Controllers/RentalsController.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [UsersController](https://github.com/ilaydaez/ReCarProject2/blob/master/WepAPI/Controllers/UsersController.cs)<br>
