@@ -58,12 +58,12 @@ Veritabanı CRUD işlemleri gerçekleştirmek için kurulan veri erişim katman�
 ### :file_folder: Business Layer
 DataAccess tarafından veratabanından projeye çekilen verileri alarak işleyen katmandır. Bir başka deyişle iş yüklerinin yazıldığı katmandır.
 Altı alt klasörden oluşur.<br>
-&nbsp;&nbsp;1.Abstarct<br>
-&nbsp;&nbsp;2.Concrete<br>
-&nbsp;&nbsp;3.BusinessAspect<br>
-&nbsp;&nbsp;4.Constants<br>
-&nbsp;&nbsp;5.DependecyResolvers<br>
-&nbsp;&nbsp;6.ValidationRules<br>
+&nbsp;&nbsp;1.Abstarct klasörü soyut nesneleri tutmak için,<br>
+&nbsp;&nbsp;2.Concrete klasörü somut nesneleri tutmak için,<br>
+&nbsp;&nbsp;3.BusinessAspect klasörü güvenlik operasyonlarının yönetimi için,<br>
+&nbsp;&nbsp;4.Constants klasörü kullanıcı verileri ile gerçekleştirilen işlem sonucunda bilgilendirme mesajlarının yönetimi için, <br>
+&nbsp;&nbsp;5.DependecyResolvers klasörü instance oluşturmak için,<br>
+&nbsp;&nbsp;6.ValidationRules klasörü doğrulama kurallarının yönetimi için oluşturuluştur.<br>
 <br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Abstarct`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IAuthService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IAuthService.cs)<br>
@@ -74,5 +74,33 @@ Altı alt klasörden oluşur.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IImageService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IImageService.cs)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IRentalService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IRentalService.cs)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IUserService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IUserService.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Concrete`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [AuthManager](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Concrete/AuthManager.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [BrandManager](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Concrete/BrandManager.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [CarManager](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Concrete/CarManager.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ColorManager](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Concrete/ColorManager.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [CustomerManager](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Concrete/CustomerManager.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ImageManager](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Concrete/ImageManager.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [RentalManager](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Concrete/RentalManager.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [UserManager](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Concrete/UserManager.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`BusinessAspect`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `Autofac`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [SecuredOperation](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/BusinessAspect/Autofac/SecuredOperation.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Constants`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [Messages](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Constants/Messages.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`DependecyResolvers`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `Autofac`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [AutofacBusinessModule](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/DependecyResolvers/Autofac/AutofacBusinessModule.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`ValidationRules`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder: `FluentValidation`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [BrandValidator](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/ValidationRules/FluentValidation/BrandValidator.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [CarValidator](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/ValidationRules/FluentValidation/CarValidator.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ColorValidator](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/ValidationRules/FluentValidation/ColorValidator.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [CustomerValidator](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/ValidationRules/FluentValidation/CustomerValidator.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [ImageValidator](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/ValidationRules/FluentValidation/ImageValidator.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [RentalValidator](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/ValidationRules/FluentValidation/RentalValidator.cs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [UserValidator](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/ValidationRules/FluentValidation/UserValidator.cs)<br>
+
+
 ### :file_folder: Core Layer
 
