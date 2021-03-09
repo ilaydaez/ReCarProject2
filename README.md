@@ -58,12 +58,12 @@ Veritabanı CRUD işlemleri gerçekleştirmek için kurulan veri erişim katman�
 ### :file_folder: Business Layer
 DataAccess tarafından veratabanından projeye çekilen verileri alarak işleyen katmandır. Bir başka deyişle iş yüklerinin yazıldığı katmandır.
 Altı alt klasörden oluşur.<br>
-&nbsp;&nbsp;1.Abstarct klasörü soyut nesneleri tutmak için,<br>
-&nbsp;&nbsp;2.Concrete klasörü somut nesneleri tutmak için,<br>
-&nbsp;&nbsp;3.BusinessAspect klasörü güvenlik operasyonlarının yönetimi için,<br>
-&nbsp;&nbsp;4.Constants klasörü kullanıcı verileri ile gerçekleştirilen işlem sonucunda bilgilendirme mesajlarının yönetimi için, <br>
-&nbsp;&nbsp;5.DependecyResolvers klasörü instance oluşturmak için,<br>
-&nbsp;&nbsp;6.ValidationRules klasörü doğrulama kurallarının yönetimi için oluşturuluştur.<br>
+&nbsp;&nbsp;1.`Abstarct` klasörü soyut nesneleri tutmak için,<br>
+&nbsp;&nbsp;2.`Concrete` klasörü somut nesneleri tutmak için,<br>
+&nbsp;&nbsp;3.`BusinessAspect` klasörü güvenlik operasyonlarının yönetimi için,<br>
+&nbsp;&nbsp;4.`Constants` klasörü kullanıcı verileri ile gerçekleştirilen işlem sonucunda bilgilendirme mesajlarının yönetimi için, <br>
+&nbsp;&nbsp;5.`DependecyResolvers` klasörü,<br>
+&nbsp;&nbsp;6.`ValidationRules` klasörü doğrulama kurallarının yönetimi için oluşturuluştur.<br>
 <br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;:open_file_folder:`Abstarct`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:clipboard: [IAuthService](https://github.com/ilaydaez/ReCarProject2/blob/master/Business/Abstract/IAuthService.cs)<br>
@@ -103,4 +103,14 @@ Altı alt klasörden oluşur.<br>
 
 
 ### :file_folder: Core Layer
+Tüm projelerde kullanılacak ortak kodların bulunduğu evrensel bir katmandır.
+Yedi alt klasörden oluşmaktadır.
+&nbsp;&nbsp;1.`Aspects` klasörü,<br>
+&nbsp;&nbsp;2.`CrossCuttingConcerns` klasörü,<br>
+&nbsp;&nbsp;3.`DataAccess` klasörü,<br>
+&nbsp;&nbsp;4.`Entities` klasörü, <br>
+&nbsp;&nbsp;5.`DependecyResolvers` klasörü instance oluşturmak için,<br>
+&nbsp;&nbsp;6.`Extensions` klasörü,<br>
+&nbsp;&nbsp;7.`Utilities` klasörü,<br>
+
 
