@@ -145,5 +145,9 @@ namespace Business.Concrete
             return null;
         }
 
+        public IDataResult<List<CarDetailsDto>> GetCarByDetails()
+        {
+            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetails());
+        }
     }
 }

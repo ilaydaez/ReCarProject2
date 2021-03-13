@@ -27,13 +27,14 @@ namespace DataAccess.Concrete.EntityFramework
 
                              select new RentalDetailsDto
                              {
-                                 RentID= r.ID,
+                                 //RentID= r.ID,
                                  RentDate= r.RentDate,
                                  ReturnDate=(DateTime) r.ReturnDate,
-                                 CarID = c.CarID,
+                                 //CarID = c.CarID,
                                  CarName = c.CarName,
-                                 CustomerID = m.CustomerID,
-                                 UserFirstName = u.UserFirstName
+                                 //CustomerID = m.CustomerID,
+                                 UserFirstName = u.UserFirstName,
+                                 UserLastName = u.UserLastName
 
                              };
 

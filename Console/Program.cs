@@ -43,8 +43,8 @@ namespace ConsoleUI
                 foreach (var car in resultListed.Data)
                 {
 
-                    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", car.CarID,
-                                car.CarName, car.BrandID, car.BrandName, car.ColorID, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
+                    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ",
+                                car.CarName, car.BrandName, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
                 }
             }
             else
@@ -118,8 +118,8 @@ namespace ConsoleUI
                 foreach (var car in resultUpdatedList.Data)
                 {
 
-                    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", car.CarID,
-                                car.CarName, car.BrandID, car.BrandName, car.ColorID, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
+                    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ",
+                                car.CarName, car.BrandName, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
                 }
             }
 
