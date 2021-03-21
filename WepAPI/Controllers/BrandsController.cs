@@ -74,5 +74,17 @@ namespace WepAPI.Controllers
             }
             return BadRequest(result);
         }
+
+
+        [HttpGet("GetAllColor")]
+        public IActionResult GetAllColor()
+        {
+            var result = _brandService.GetCarByBrand();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

@@ -11,79 +11,58 @@ using System.Threading.Tasks;
 
 namespace WepAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
-    public partial class ImagesController : ControllerBase
+    public class ImagesController : ControllerBase
     {
-        IImageService _ımageService;
-        IWebHostEnvironment _webHostEnvironment;
+        private IImageService _imageService;
 
-        public ImagesController(IImageService ımageService, IWebHostEnvironment webHostEnvironment)
+        public ImagesController(IImageService imageService)
         {
-            _ımageService = ımageService;
-            _webHostEnvironment = webHostEnvironment;
+            _imageService = imageService;
         }
 
-        [HttpPost("add")]
-        public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] Image image)
-        {
-            string path = _webHostEnvironment.WebRootPath + "\\Images\\";
-            var newGuidPath = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            using (FileStream fileStream = System.IO.File.Create(path + newGuidPath))
-            {
-                file.CopyTo(fileStream);
-                fileStream.Flush();
-            }
-            if (file == null)
-            {
-                image.ImagePath = path + "default.png";
-            }
-
-            var result = _ımageService.Add(new Image
-            {
-                CarID = image.CarID,
-                Date = DateTime.Now,
-                ImagePath = newGuidPath
-            });
-
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpPost("DeleteImage")]
-        public IActionResult DeleteImage(Image ımage)
-        {
-            var result = _ımageService.Delete(ımage);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpPost("UpDateImage")]
-        public IActionResult UpDateImage(Image ımage)
-        {
-            var result = _ımageService.UpDate(ımage);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpGet("GetAll")]
+        [HttpGet]
         public IActionResult GetAll()
         {
-            var result = _ımageService.GetByImages();
+            var result = _imageService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet]
+        public IActionResult GetAllByCarId(int carID)
+        {
+            var result = _imageService.GetAllByCarId(carID);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet]
+        public IActionResult GetById(int imageID)
+        {
+            var result = _imageService.GetById(imageID);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpPost]
+        public IActionResult Add([FromForm] IFormFile image, [FromForm] Image carImage)
+        {
+
+            var result = _imageService.Add(image, carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -91,10 +70,10 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("GetByImageID")]
-        public IActionResult GetByImageID(int ımageID)
+        [HttpPost]
+        public IActionResult Delete(Image carImage)
         {
-            var result = _ımageService.GetByImageID(ımageID);
+            var result = _imageService.Delete(carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -102,10 +81,10 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("GetImageByCarID")]
-        public IActionResult GetImageByCarID(int carId)
+        [HttpPost]
+        public IActionResult Update([FromForm] IFormFile image, [FromForm] Image carImage)
         {
-            var result = _ımageService.GetImageByCarID(carId);
+            var result = _imageService.Update(image, carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -113,15 +92,6 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("GetImageByDate")]
-        public IActionResult GetImageByDate(DateTime ımageDate)
-        {
-            var result = _ımageService.GetImageByDate(ımageDate);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
+
     }
 }

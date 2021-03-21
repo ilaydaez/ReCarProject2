@@ -37,7 +37,7 @@ namespace ConsoleUI
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
 
-            var resultListed = carManager.GetCarDetails();
+            var resultListed = carManager.GetCarDetail();
             if (resultListed.Success == true)
             {
                 foreach (var car in resultListed.Data)
@@ -112,7 +112,7 @@ namespace ConsoleUI
             Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} | {7,-20}| {8,-20} ", "CarID", "CarName", "BrandID", "BranName", "ColorID", "ColorName", "ModelYear", "DailyPrice", "Description"));
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
-            var resultUpdatedList = carManager.GetCarDetails();
+            var resultUpdatedList = carManager.GetCarDetail();
             if (resultUpdatedList.Success == true)
             {
                 foreach (var car in resultUpdatedList.Data)

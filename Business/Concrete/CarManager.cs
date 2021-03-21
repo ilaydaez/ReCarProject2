@@ -59,20 +59,20 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
         }
 
-        public IDataResult<List<Car>> GetCarByBrandID(int brandID)
+        public IDataResult<List<CarDetailsDto>> GetCarByBrandID(int brandID)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandID == brandID));
+            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetail(c => c.BrandID == brandID));
         }
 
-        public IDataResult<List<CarDetailsDto>> GetCarDetails()
+        public IDataResult<List<CarDetailsDto>> GetCarDetail()
         {
-            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetails());
+            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetail());
    
         }
 
-        public IDataResult<List<Car>> GetCarByColorID(int colorID)
+        public IDataResult<List<CarDetailsDto>> GetCarByColorID(int colorID)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c=> c.ColorID==colorID));
+            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetail(c=> c.ColorID==colorID));
         }
 
         public IDataResult<List<Car>> GetCarByModelYear(int date)
@@ -144,10 +144,9 @@ namespace Business.Concrete
             Add(car);
             return null;
         }
-
-        public IDataResult<List<CarDetailsDto>> GetCarByDetails()
+        public IDataResult<List<CarDetailsDto>> GetCarByDetailId(int carID)
         {
-            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetails());
+            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetail(c => c.CarID == carID));
         }
     }
 }

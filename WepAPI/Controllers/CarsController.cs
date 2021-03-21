@@ -34,7 +34,18 @@ namespace WepAPI.Controllers
         [HttpGet("GetByDetails")]
         public IActionResult GetByDetails()
         {
-            var result = _carService.GetCarByDetails();
+            var result = _carService.GetCarDetail();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("GetDetailById")]
+        public IActionResult GetDetailById(int carID)
+        {
+            var result = _carService.GetCarByDetailId(carID);
             if (result.Success)
             {
                 return Ok(result);
@@ -53,10 +64,21 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
+        //[HttpGet("getbybrand")]
+        //public IActionResult GetByBrand(int brandId)
+        //{
+        //    var result = _carService.GetCarByBrandID(brandId);
+        //    if (result.Success)
+        //    {
+        //        return Ok(result);
+        //    }
+        //    return BadRequest(result);
+        //}
+
         [HttpGet("GetByColor")]
-        public IActionResult GetByColorId(int id)
+        public IActionResult GetByColorId(int colorId)
         {
-            var result = _carService.GetCarByColorID(id);
+            var result = _carService.GetCarByColorID(colorId);
             if (result.Success)
             {
                 return Ok(result);
@@ -64,10 +86,10 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("GetByBrand")]
-        public IActionResult GetByBrandId(int id)
+        [HttpGet("getbybrand")]
+        public IActionResult GetByBrand(int brandId)
         {
-            var result = _carService.GetCarByBrandID(id);
+            var result = _carService.GetCarByBrandID(brandId);
             if (result.Success)
             {
                 return Ok(result);

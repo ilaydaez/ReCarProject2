@@ -14,36 +14,50 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, ReCarContext>, ICarDal
     {
-        public List<CarDetailsDto> GetCarDetails()
+        public List<CarForDeleteDto> GetCars()
         {
             using (ReCarContext context = new ReCarContext())
             {
-                
-                var result = from c in context.Cars
-                             join b in context.Brands
-                             on c.BrandID equals b.BrandID
-                             join r in context.Colors
-                             on c.ColorID equals r.ColorID
-                             
-                             
-  
-                             select new CarDetailsDto
-                             {
-                                 CarName = c.CarName,
-                                 BrandName = b.BrandName,
-                                 ColorName=r.ColorName,
-                                 DailyPrice=c.DailyPrice,
-                                 ModelYear=c.ModelYear,
-                                 Description=c.Description,
-                                 
-   
-                             };
+                IQueryable<CarForDeleteDto> carForDelete = from c in context.Cars
+                                                           join r in context.Rentals
+                                                           on c.CarID equals r.CarID
+                                                           select new CarForDeleteDto
+                                                           {
+                                                               CarID = c.CarID,
+                                                               ID = r.ID,
+                                                               RentedDate = r.RentDate,
+                                                               ReturnedDate = r.ReturnDate
+                                                           };
+                return carForDelete.ToList();
 
-                return result.ToList();
             }
-
         }
-        
 
+        public List<CarDetailsDto> GetCarDetail(Expression<Func<Car, bool>> filter = null)
+        {
+            using (ReCarContext context = new ReCarContext())
+            {
+                IQueryable<CarDetailsDto> carDetails = from c in filter is null ? context.Cars : context.Cars.Where(filter)
+                                                      join b in context.Brands
+                                                      on c.BrandID equals b.BrandID
+                                                      join cl in context.Colors
+                                                      on c.ColorID equals cl.ColorID
+                                                      select new CarDetailsDto
+                                                      {
+                                                          CarID = c.CarID,
+                                                          BrandID = b.BrandID,
+                                                          ColorID = cl.ColorID,
+                                                          CarName = c.CarName,
+                                                          BrandName = b.BrandName,
+                                                          ColorName = cl.ColorName,
+                                                          ModelYear = c.ModelYear,
+                                                          DailyPrice = c.DailyPrice.ToString(),
+                                                          Description = c.Description,
+
+                                                      };
+
+                return carDetails.ToList();
+            }
+        }
     }
 }
