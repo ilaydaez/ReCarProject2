@@ -10,12 +10,12 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfImageDal : EfEntityRepositoryBase<Image, ReCarContext>, IImageDal
     {
-        //public bool IsExist(int id)
-        //{
-        //    using (ReCarContext context= new ReCarContext())
-        //    {
-        //        return context.Images.Any(ı=> ı.ImageID== id);
-        //    }
-        //}
+        public bool IsExist(int id)
+        {
+            using (ReCarContext context = new ReCarContext())
+            {
+                return context.Images.Any(ı => ı.ImageID == id);
+            }
+        }
     }
 }
