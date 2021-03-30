@@ -80,6 +80,15 @@ namespace Business.Concrete
 
             return new SuccessResult(Messages.RentalUpdated);
         }
-        
+
+        public IResult CheckCarStatus(Rental rental)
+        {
+            if (_rentalDal.CheckCarStatus(rental.CarID, rental.RentDate, rental.ReturnDate))
+            {
+                return new SuccessResult(Messages.RentalDateOk);
+            }
+            return new ErrorResult(Messages.RentalReturnDateError);
+        }
+
     }
 }

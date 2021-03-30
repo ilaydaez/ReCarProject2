@@ -43,6 +43,8 @@ namespace Business.Constants
         public static string RentalDeleted = "Kiralanan Araç Silindi";
         public static string RentalUpdated = "Kiralanan Araç Güncellendi";
         public static string ReturnDate = "Araç Kiralanamaz";
+        public static string RentalDateOk = "The car can be delivered on the requested dates.";
+        public static string RentalReturnDateError = "The car cannot be rented on the requested dates.";
         public static string CarCountOfBrandError ="Model sayısı 15 ten fazla olamaz";
         public static string CarNameAlreadyExits="Bu isimde araç bulunmaktadır.";
 
@@ -60,5 +62,9 @@ namespace Business.Constants
         public static string SuccessfulLogin ="Başarılı Giriş";
         public static string UserAlreadyExists = "Kullanıcı Mevcut";
         public static string AccessTokenCreated = "Token oluşturuldu";
+
+        public static string PaymentAdded = "Ödeme Yapıldı";
+        public static string PaymentGetAll = "Ödemeler Listelendi";
+        public static string GetPaymentByPaymentId = "Id Bilgisi Listelendi";
     }
 }
