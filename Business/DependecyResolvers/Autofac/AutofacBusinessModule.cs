@@ -38,6 +38,9 @@ namespace Business.DependecyResolvers.Autofac
             builder.RegisterType<ImageManager>().As<IImageService>().SingleInstance();
             builder.RegisterType<EfImageDal>().As<IImageDal>().SingleInstance();
 
+            builder.RegisterType<PaymentManager>().As<IPaymentService>().SingleInstance();
+            builder.RegisterType<EfPaymentDal>().As<IPaymentDal>().SingleInstance();
+
             //builder.RegisterType<UserManager>().As<IUserService>();
             //builder.RegisterType<EfUserDal>().As<IUserDal>();
 

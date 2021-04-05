@@ -25,9 +25,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Payment>>(_paymentDal.GetAll(), Messages.PaymentGetAll);
         }
 
-        public IDataResult<Payment> GetById(int paymentId)
+        public IDataResult<Payment> GetById(int paymentID)
         {
-            return new SuccessDataResult<Payment>(_paymentDal.Get(p => p.PaymentID == paymentId), Messages.GetPaymentByPaymentId);
+            return new SuccessDataResult<Payment>(_paymentDal.Get(p => p.PaymentID == paymentID), Messages.GetPaymentByPaymentId);
         }
 
         [ValidationAspect(typeof(PaymentValidator))]
