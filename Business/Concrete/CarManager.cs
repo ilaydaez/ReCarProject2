@@ -37,7 +37,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.CarID == carID));
         }
 
-        //[SecuredOperation("car.add, admin")]
+        [SecuredOperation("car.add, admin")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
