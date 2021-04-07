@@ -43,6 +43,11 @@ namespace Business.Concrete
             return new SuccessDataResult<Customer>(_customerDal.Get(u => u.CustomerID == customerID));
         }
 
+        public IDataResult<List<Customer>> GetByUserId(int id)
+        {
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(c => c.Id == id));
+        }
+
         public IDataResult<List<Customer>> GetByCustomers()
         {
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll());
@@ -60,7 +65,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Customer>> GetCustomerByUserID(int userID)
         {
-            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(u => u.UserID == userID));
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(u => u.Id == userID));
         }
 
         public IResult UpDate(Customer customer)

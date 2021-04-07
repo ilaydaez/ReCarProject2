@@ -74,7 +74,7 @@ namespace DataAccess.Concrete.EntityFramework
                              join co in context.Customers
                              on ra.CustomerID equals co.CustomerID
                              join u in context.Users
-                             on co.UserID equals u.Id
+                             on co.Id equals u.Id
                              join b in context.Brands
                              on c.BrandID equals b.BrandID
                              join p in context.Payments

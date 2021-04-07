@@ -19,7 +19,7 @@ namespace DataAccess.Concrete.EntityFramework
             {
 
                 var result = from customer in filter is null ? context.Customers : context.Customers.Where(filter)
-                             join user in context.Users on customer.UserID equals user.Id
+                             join user in context.Users on customer.Id equals user.Id
                              select new CustomerDetailsDto
                              {
                                  CompanyName = customer.CompanyName,

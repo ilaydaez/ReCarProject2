@@ -10,7 +10,7 @@ namespace Business.ValidationRules.FluentValidation
     {
         public CustomerValidator()
         {
-            RuleFor(c => c.UserID).NotEmpty().WithMessage("Müşteriye ait kullanıcı nmarasını giriniz!!");
+            RuleFor(c => c.Id).NotEmpty().WithMessage("Müşteriye ait kullanıcı nmarasını giriniz!!");
             RuleFor(c => c.CompanyName).NotEmpty().WithMessage("Müşteriye ait şehiri giriniz!!");
         }
     }

@@ -53,6 +53,17 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getbyuserid")]
+        public IActionResult GetByUserId(int id)
+        {
+            var result = _customerService.GetByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+
         [HttpGet("GetByCustomerCompany")]
         public IActionResult GetByCustomerCompany(string company)
         {
