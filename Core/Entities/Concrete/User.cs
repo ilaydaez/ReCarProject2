@@ -10,9 +10,9 @@ namespace Core.Entities.Concrete
         public string UserFirstName { get; set; }
         public string UserLastName { get; set; }
         public string Email { get; set; }
-        //public int Password { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public bool Status { get; set; }
+        public int UserFindexScore { get; set; }
     }
 }

@@ -24,7 +24,9 @@ namespace DataAccess.Concrete.EntityFramework
                              {
                                  CompanyName = customer.CompanyName,
                                  UserFirstName=user.UserFirstName,
-                                 UserLastName=user.UserLastName
+                                 UserLastName=user.UserLastName,
+                                 UserFindexScore=user.UserFindexScore
+                                 
                              };
 
 

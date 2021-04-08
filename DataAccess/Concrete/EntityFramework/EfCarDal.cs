@@ -34,6 +34,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  ModelYear = c.ModelYear,
                                  DailyPrice = c.DailyPrice.ToString(),
                                  Description = c.Description,
+                                 FindexScore= c.FindexScore,
                                  ImagePath = context.Images.Where(x => x.CarID == c.CarID).FirstOrDefault().ImagePath
                              };
                 return result.ToList();

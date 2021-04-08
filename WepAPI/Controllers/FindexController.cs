@@ -63,9 +63,9 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getbyuserid")]
-        public IActionResult GetByUserId(int userId)
+        public IActionResult GetByUserId(int id)
         {
-            var result = _findexService.GetByUserId(userId);
+            var result = _findexService.GetByUserId(id);
             if (result.Success)
             {
                 return Ok(result);

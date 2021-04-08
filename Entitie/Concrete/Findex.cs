@@ -9,6 +9,6 @@ namespace Entities.Concrete
     {
         public int FindexId { get; set; }
         public int Id { get; set; }
-        public int FindexStore { get; set; }
+        public int FindexScore { get; set; }
     }
 }
